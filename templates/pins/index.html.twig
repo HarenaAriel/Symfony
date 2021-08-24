@@ -1,1 +1,12 @@
-<h1>Pins</h1>
+<div class="container">
+
+  {% for pin in pins %}
+
+    <article>
+      <h1>{{ pin.getTitle() }}</h1>
+      <p>{{ pin.getDescription() }}</p>
+    </article>
+
+  {% endfor %}
+
+</div>

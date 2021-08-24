@@ -2,22 +2,33 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Pin;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PinsController extends AbstractController
 {
+
     /**
      * @Route("/", name="pins")
      */
-    public function index(): Response
+    public function index(EntityManagerInterface $em): Response //public function index(PinRepository $repos): Response
     {
-        // return $this->json([
-        //     'message' => 'Welcome to your new controller!',
-        //     'path' => 'src/Controller/PinsController.php',
-        // ]);
+        $repo = $em->getRepository(Pin::class);
+        $pins = $repo->findAll();
 
-        return $this->render('pins/index.html.twig');
+        return $this->render('pins/index.html.twig', ['pins' => $pins]); 
+        //return $this->render('pins/index.html.twig', compact('pins'));
+        //return $this->render('pins/index.html.twig', ['pins' => $repo->findAll()]); 
+    }
+
+    /**
+     * @Route("/pins/create")
+     */
+    public function create(): Response
+    {
+        return $this->render('pins/create.html.twig');
     }
 }
