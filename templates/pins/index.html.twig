@@ -1,12 +1,24 @@
-<div class="container">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
 
-  {% for pin in pins %}
+      <a href="{{ path('create_pins') }}">Create a pins</a>
 
-    <article>
-      <h1>{{ pin.getTitle() }}</h1>
-      <p>{{ pin.getDescription() }}</p>
-    </article>
+      {% for pin in pins %}
 
-  {% endfor %}
+        <article>
+          <h1>{{ pin.getTitle() }}</h1>
+          <p>{{ pin.getDescription() }}</p>
+        </article>
 
-</div>
+      {% endfor %}
+
+    </div>
+  </body>
+</html>
+
+

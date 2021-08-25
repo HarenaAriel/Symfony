@@ -4,8 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Pin;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PinsController extends AbstractController
@@ -25,10 +29,37 @@ class PinsController extends AbstractController
     }
 
     /**
-     * @Route("/pins/create")
+     * @Route("/pins/create", name="create_pins", methods={"GET", "POST"})
      */
-    public function create(): Response
+    public function create(Request $request, EntityManagerInterface $em): Response
     {
-        return $this->render('pins/create.html.twig');
+        $pin = new Pin;
+
+        $form = $this->createFormBuilder($pin)
+                ->add('title', TextType::class, ['attr' => [
+                    'class' => 'container'
+                ]])
+                ->add('description', TextareaType::class, ['attr' => [
+                    'rows' => '5',
+                    'cols' => '60'
+                ]])
+                ->getForm()
+        ;
+
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) { 
+
+            $em->persist($pin);
+            $em->flush();
+
+            return $this->redirectToRoute('pins');
+
+        }
+
+        return $this->render("pins/create.html.twig", [
+            'creationForm' => $form->createView()
+        ]);
+
     }
 }

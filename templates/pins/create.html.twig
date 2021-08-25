@@ -1,15 +1,17 @@
-<form methode="Post">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
 
-  <div>
-    <label for="title">Titre</label><br>
-    <input id="title" type="text" name="title"/>
-  </div>
+    {{ form_start(creationForm) }}
 
-  <div>
-    <label for="description">Description</label><br>
-    <textarea id="description" name="description" rows="5" cols="60"></textarea>
-  </div>
+      {{ form_widget(creationForm) }}
 
-  <input type="submit" value="valider">
+      <input type="submit" value="Create pin">
 
-</form>
+    {{ form_end(creationForm) }}
+
+  </body>
+</html>

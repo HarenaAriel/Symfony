@@ -187,6 +187,9 @@
             "./.env"
         ]
     },
+    "symfony/form": {
+        "version": "v5.3.4"
+    },
     "symfony/framework-bundle": {
         "version": "5.3",
         "recipe": {
@@ -242,11 +245,20 @@
             "./config/packages/test/monolog.yaml"
         ]
     },
+    "symfony/options-resolver": {
+        "version": "v5.3.4"
+    },
     "symfony/orm-pack": {
         "version": "v2.1.0"
     },
+    "symfony/password-hasher": {
+        "version": "v5.3.4"
+    },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.23.1"
+    },
+    "symfony/polyfill-intl-icu": {
+        "version": "v1.23.0"
     },
     "symfony/polyfill-intl-normalizer": {
         "version": "v1.23.0"
@@ -266,6 +278,12 @@
     "symfony/profiler-pack": {
         "version": "v1.0.6"
     },
+    "symfony/property-access": {
+        "version": "v5.3.4"
+    },
+    "symfony/property-info": {
+        "version": "v5.3.4"
+    },
     "symfony/proxy-manager-bridge": {
         "version": "v5.3.4"
     },
@@ -283,6 +301,12 @@
         ]
     },
     "symfony/runtime": {
+        "version": "v5.3.4"
+    },
+    "symfony/security-core": {
+        "version": "v5.3.6"
+    },
+    "symfony/security-csrf": {
         "version": "v5.3.4"
     },
     "symfony/service-contracts": {
