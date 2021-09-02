@@ -6,22 +6,12 @@
   <body>
     <div class="container">
 
-      <a href="{{ path('create_pins') }}">Create a pins</a>
-
-      {% for pin in pins %}
-
         <article>
           <h1>{{ pin.getTitle() }}</h1>
           <p>{{ pin.getDescription() }}</p>
         </article>
 
-        {% else %}
-          <p> sorry there is no pin. </p>
-
-      {% endfor %}
-
     </div>
   </body>
 </html>
-
 

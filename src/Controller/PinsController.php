@@ -18,7 +18,7 @@ class PinsController extends AbstractController
     /**
      * @Route("/", name="pins")
      */
-    public function index(EntityManagerInterface $em): Response //public function index(PinRepository $repos): Response
+    public function index(EntityManagerInterface $em): Response // ublic function index(PinRepository $repos): Response
     {
         $repo = $em->getRepository(Pin::class);
         $pins = $repo->findAll();
@@ -26,6 +26,19 @@ class PinsController extends AbstractController
         return $this->render('pins/index.html.twig', ['pins' => $pins]); 
         //return $this->render('pins/index.html.twig', compact('pins'));
         //return $this->render('pins/index.html.twig', ['pins' => $repo->findAll()]); 
+    }
+
+    /**
+     * @Route("/pins/{id<[0-9]+>}", name="show_pin")
+     */
+    public function show(EntityManagerInterface $em, int $id): Response // public function show(PinRepository $repos): Response
+    {
+        $repo = $em->getRepository(Pin::class);
+        $pin = $repo->find($id); //static value
+
+        return $this->render('pins/show.html.twig', ['pin' => $pin]);
+        
+        //return $this->render('pins/index.html.twig', ['pins' => $repo->find(1)]); 
     }
 
     /**

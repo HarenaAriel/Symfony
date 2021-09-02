@@ -35,7 +35,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "2.4",
-            "ref": "dda18c8830b143bc31c0e0457fb13b9029614d76"
+            "ref": "bac5c852ff628886de2753215fe5eb1f9ce980fb"
         },
         "files": [
             "./config/packages/doctrine.yaml",
@@ -196,7 +196,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "5.3",
-            "ref": "772b77cfb5017644547ef7f9364c54e4eb9a6c61"
+            "ref": "414ba00ad43fa71be42c7906a551f1831716b03c"
         },
         "files": [
             "./config/packages/cache.yaml",
