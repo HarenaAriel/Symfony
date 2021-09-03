@@ -13,6 +13,9 @@
         <article>
           <h1>{{ pin.getTitle() }}</h1>
           <p>{{ pin.getDescription() }}</p>
+          <a href="{{ path('show_pin', {id: pin.getId() }) }}" > Details </a>
+          <a href="{{ path('edit_pin', {id: pin.getId() }) }}" > Edit </a>
+          <a href="{{ path('delete_pin', {id: pin.getId() }) }}" onclick="return confirm('Attention ceci va supprimer l\'article selectionner. Voulez-vous continuer l\'operations?');"> Delete </a>
         </article>
 
         {% else %}

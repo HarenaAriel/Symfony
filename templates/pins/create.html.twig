@@ -9,7 +9,11 @@
 
       {{ form_widget(creationForm) }}
 
-      <input type="submit" value="Create pin">
+        {% if pin == null  %}
+        <input type="submit" value="Create pin">
+        {% else %}
+        <input type="submit" value="edit pin">
+        {% endif %}
 
     {{ form_end(creationForm) }}
 
