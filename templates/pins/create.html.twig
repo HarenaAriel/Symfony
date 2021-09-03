@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-  </head>
-  <body>
+{% extends "base.html.twig" %}
+
+{% block body %}
 
     {{ form_start(creationForm) }}
 
       {{ form_widget(creationForm) }}
 
-        {% if pin == null  %}
+        {% if pin.getId() == null  %}
         <input type="submit" value="Create pin">
         {% else %}
         <input type="submit" value="edit pin">
@@ -17,5 +14,4 @@
 
     {{ form_end(creationForm) }}
 
-  </body>
-</html>
+{% endblock %}

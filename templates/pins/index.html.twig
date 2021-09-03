@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-  </head>
-  <body>
+{% extends "base.html.twig" %}
+
+{% block body %}
+
     <div class="container">
 
       <a href="{{ path('create_pins') }}">Create a pins</a>
@@ -24,7 +22,5 @@
       {% endfor %}
 
     </div>
-  </body>
-</html>
-
-
+ 
+{% endblock %}
